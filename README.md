@@ -136,3 +136,4 @@ $ git clone + ссылка
 
 
 ![alt-текст](https://github.com/HeyArtem/Financial-wallet-on-classes/blob/main/picture%20for%20readme/11.png "Baner") ![alt-текст](https://github.com/HeyArtem/Financial-wallet-on-classes/blob/main/picture%20for%20readme/12.png "Baner2")
+![alt-текст](https://github.com/HeyArtem/Financial-wallet-on-classes/blob/main/picture%20for%20readme/13.png "Baner")
