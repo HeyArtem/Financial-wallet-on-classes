@@ -130,3 +130,6 @@ dmypy.json
 .pyre/
 
 /transactions_data
+main2.py
+requirements.txt
+/.idea

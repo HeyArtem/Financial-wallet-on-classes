@@ -29,15 +29,15 @@ from models.stream import Stream
 # print(tr1.date,)
 
 """
-test list_transactions:
-(Возвощает список транзакций в виде экземпляров кл.)
+    test list_transactions:
+    (Возвращает список транзакций в виде экземпляров кл.)
     создал экз класса Stream
     Обратился к кл Transaction-> m append-> 
         передал ему эк.кл Stream+m read(читает из файла)
 """
-# str_r = Stream()
-# Transaction.append(str_r.read())
-# print(Transaction.list_transactions)
+str_r = Stream()
+Transaction.append(str_r.read())
+print(Transaction.list_transactions)
 
 """
     test show_income (доходы)
@@ -80,14 +80,14 @@ test list_transactions:
 """
     test search
 """
-str1 = Stream()
-Transaction.append(str1.read())
-print(Transaction.search(
-    field='amount',
-    keyword=100
-    # keyword='2024-10-12'
-    # keyword='100'
-))
+# str1 = Stream()
+# Transaction.append(str1.read())
+# print(Transaction.search(
+#     field='amount',
+#     keyword=100
+#     # keyword='2024-10-12'
+#     # keyword='100'
+# ))
 
 # """
 #     search by category

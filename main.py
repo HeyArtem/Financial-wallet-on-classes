@@ -7,8 +7,6 @@ stream = Stream()
 Transaction.append(stream.read())
 
 
-
-
 def show_balance():
     return f"Баланс кошелька: {Transaction.show_balance()}"
 
@@ -64,30 +62,22 @@ def search():
         list_categories = Transaction.search_fields
 
         # Формирую словарь вида {1: 'date', 2: 'amount', 3: 'category'}
-        categories_dict = {}
+        action_menu_search = {}
         # for index in range(len(list_categories)):
         #     categories_dict[index + 1] = list_categories[index]
 
         for index, item in enumerate(list_categories):
-            categories_dict[index + 1] = item
+            action_menu_search[str(index + 1)] = item
 
             # И вывожу меню
             print(f"\t {index + 1}. {item.title()}")
 
-        # Поиск по каждому полю-отдельная функция (new globals())
-        glb = globals()
-        action_menu_search = {
-            '1': glb['search_date'],
-            '2': glb['search_amount'],
-            '3': glb['search_category'],
-        }
-
-        user_action_search = input('Выберите поле поиска: ')
+        user_action = input('Выберите поле поиска: ')
         # Валидация
-        if user_action_search not in action_menu_search.keys():
+        if user_action not in action_menu_search.keys():
             print('Вы ввели не корректное число')
             continue
-        return action_menu_search[user_action_search]()
+        return globals()[f"search_{action_menu_search[user_action]}"]()
 
 
 def search_date():
@@ -122,11 +112,11 @@ def search_amount():
         amount = input("Введите сумму транзакции: ")
         # Валидация
         try:
-            float(amount)
+            amount = float(amount)
         except (ValueError, TypeError):
             print('Транзакции это число!')
             continue
-        res = (Transaction.search(field='amount', keyword=int(amount)))
+        res = (Transaction.search(field='amount', keyword=amount))
         if not res:
             return 'По данному запросу ни чего не найдено.'
         return res
@@ -139,7 +129,7 @@ def search_category():
     """
     print('Поиск по категории доход, расход.')
     while True:
-        for k,v in Transaction.categories.items():
+        for k, v in Transaction.categories.items():
             print(f"\tВыберите {k} если {v}")
         category = (input("Введите '+' или '-': "))
 
@@ -151,19 +141,6 @@ def search_category():
         if not res:
             return 'По данному запросу ни чего не найдено.'
         return res
-
-
-
-        # # Валидация
-        # try:
-        #     float(amount)
-        # except Exception:
-        #     print('Сумма это число!')
-        #     continue
-        # res = (Transaction.search(field='category', keyword=amount))
-        # if not res:
-        #     return 'По данному запросу ни чего не найдено.'
-        # return res
 
 
 def list_transactions():
