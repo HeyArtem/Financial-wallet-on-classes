@@ -135,4 +135,4 @@ $ git clone + ссылка
 <hr>
 
 
-![alt-текст](https://github.com/HeyArtem/scraping_proficosmetics/blob/main/picture/baner.png "Baner")
+![alt-текст]((https://github.com/HeyArtem/Financial-wallet-on-classes/blob/main/picture%20for%20readme/11.png) "Baner")
